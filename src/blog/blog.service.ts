@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { BlogDto } from 'src/dto/create-blog.dto';
 import { Blog } from './blog.entitiy';
+import { Logger } from '@nestjs/common';
 
 @Injectable()
 export class BlogService {
@@ -21,16 +23,28 @@ export class BlogService {
         });
     }
 
-    async remove(id:number):Promise<void>{
+    async remove(id:number):Promise<string>{
         const blog = await this.blogModel.findOne({
             where:{
                 id
             }
         })
-        await blog.destroy();
+        if(blog){
+            await blog.destroy();
+            return "Successfully deleted";
+        }
+        else{
+            return "Not found";
+        }
     }
 
-    async create(data:Blog):Promise<Blog>{
-        return await this.blogModel.create({data});
+    async create(createBlogDto:Blog):Promise<Blog>{
+        return await this.blogModel.create({
+            title: createBlogDto.title,
+            content: createBlogDto.content,
+            tags: createBlogDto.tags,
+            status: createBlogDto.status,
+            authorId: createBlogDto.authorId
+        });
     }
 }

@@ -14,10 +14,10 @@ export class Blog extends Model {
   @Column
   status: string;
 
-  @Column
+  @Column({defaultValue: new Date()})
   createdAt: Date;
 
-  @Column
+  @Column({defaultValue: new Date()})
   updatedAt: Date;
 
   @Column
