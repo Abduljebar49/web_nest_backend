@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Delete, Post, Body } from '@nestjs/common';
-import { BlogDto } from 'src/dto/create-blog.dto';
+import { BlogDto } from 'src/blog/dto/create-blog.dto';
 import { Blog } from './blog.entitiy';
 import { BlogService } from './blog.service';
 

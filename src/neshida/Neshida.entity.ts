@@ -1,18 +1,16 @@
 import { Table, Model, Column } from 'sequelize-typescript';
 
 @Table
-export class Blog extends Model {
+export class Neshida extends Model {
+  
   @Column
   title: string;
 
   @Column
-  content: string;
+  audioUrl: string;
 
   @Column
   tags: string;
-
-  @Column
-  status: string;
 
   @Column({defaultValue: new Date()})
   createdAt: Date;
@@ -21,5 +19,5 @@ export class Blog extends Model {
   updatedAt: Date;
 
   @Column
-  authorId: number;
+  songerId: number;
 }

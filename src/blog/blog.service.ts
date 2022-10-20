@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { BlogDto } from 'src/dto/create-blog.dto';
+import { BlogDto } from 'src/blog/dto/create-blog.dto';
 import { Blog } from './blog.entitiy';
 import { Logger } from '@nestjs/common';
 
